@@ -1,0 +1,19 @@
+{
+  "name": "dates-dashboard",
+  "packageManager": "yarn@3.2.0",
+  "private": true,
+  "scripts": {
+    "web": "yarn workspace @dates-dashboard/web",
+    "server": "yarn workspace @dates-dashboard/server",
+    "common": "yarn workspace @dates-dashboard/common",
+    "web:client:start": "yarn web start",
+    "server:start": "yarn server start",
+    "web:start": "yarn concurrently --kill-others-on-fail -n \"SERVER,WEB\" -c \"magenta,cyan\" \"yarn server:start\" \"yarn web:client:start\""
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^7.1.0"
+  }
+}
